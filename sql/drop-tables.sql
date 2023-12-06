@@ -1,0 +1,3 @@
+DROP FUNCTION IF EXISTS InsertVacancy;
+DROP TABLE IF EXISTS replies;
+DROP TABLE IF EXISTS vacancies;
