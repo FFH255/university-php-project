@@ -28,7 +28,7 @@
     public function getVacancyById($id) {
       $result = $this->database->getVacancyById($id);
       $row = $result->fetch_assoc();
-      return new VacancyModel(
+      $vacancy = new VacancyModel(
         $row['id'],
         $row['title'],
         $row['company'],
@@ -40,6 +40,21 @@
         $row['salary_to'],
         $row['description']
       );
+      return $vacancy;
+    }
+    public function createVacancy($title, $company, $employment, $experience_from, $experience_to, $city, $salary_from, $salary_to, $description) {
+      $newId = $this->database->createVacancy(
+        $title, 
+        $company,
+        $employment, 
+        $experience_from, 
+        $experience_to, 
+        $city, 
+        $salary_from,
+        $salary_to, 
+        $description
+      );
+      return $newId;
     }
   } 
 ?>

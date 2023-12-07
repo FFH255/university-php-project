@@ -26,4 +26,14 @@
     $queryString = "SELECT * FROM vacancies WHERE id = $id;";
     return $this->db->query($queryString);
   }
+  public function createVacancy($title, $company, $employment, $experience_from, $experience_to, $city, $salary_from, $salary_to, $description) {
+    $query = "SELECT InsertVacancy(?, ?, ?, ?, ?, ?, ?, ?, ?) AS new_id";
+    $stmt = $this->db->prepare($query);
+    $stmt->bind_param("sssssssss", $title, $company, $employment, $experience_from, $experience_to, $city, $salary_from, $salary_to, $description);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    $id = $row['new_id'];
+    return $id;
+  }
 } ?>
