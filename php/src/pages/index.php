@@ -7,17 +7,8 @@
 <div class='vacancies-list'>
   <?php 
     foreach ($vacancies as $vacancy) {
-      echo "
-        <a href='/vacancy.php?id={$vacancy->id}'>
-          <h3>{$vacancy->title}</h3>
-          <span>{$vacancy->company}</span>
-          <span>{$vacancy->city}</span>
-          <span>{$vacancy->employment}</span>
-          <span>от {$vacancy->experience_from} до {$vacancy->experience_to}</span>
-          <span>от {$vacancy->salary_from} до {$vacancy->salary_to}</span>
-          <button>Откликнуться</button>
-        </a>
-      ";
+      include $ROOT . '/ui/vacancyBrief.php';
     }
   ?>
 </div>
+<a href="/create-vacancy.php">Создать вакансию</a>

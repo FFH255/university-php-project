@@ -1,6 +1,6 @@
 <?php 
   $headerLinks = [
-    ['link' => 'index.php', 'title' => 'Главная'],
+    ['link' => '/', 'title' => 'Главная'],
   ];
 ?>
 
