@@ -1,9 +1,11 @@
 <?php 
-  require_once $_SERVER["DOCUMENT_ROOT"] . '/lib/VacanciesService.php';
+  include_once $ROOT . '/lib/VacanciesService.php';
   $vacanciesService = new VacanciesService();
-  $vacancy = $vacanciesService->getVacancyById(1);
+  $id = $_GET['id'] ?? null;
+  if (!$id) {
+    echo "<h2>Не удалось загрузить вакансию</h2>";
+  } else {
+    $vacancy = $vacanciesService->getVacancyById($id);
+    include_once $ROOT . '/ui/vacancyDetails.php';
+  }
 ?>
-
-<h2>
-  <?php echo $vacancy->title; ?>
-</h2>

@@ -1,6 +1,7 @@
 @import url('./layout.css'); 
 @import url('./header.css');
 @import url('./index.css');
+@import url('./vacancy.css');
 
 *, *::before, *::after {
   box-sizing: border-box;
