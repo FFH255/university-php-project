@@ -1,0 +1,16 @@
+.vacancies-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.vacancies-list > a {
+  color: black;
+  text-decoration: none;
+  border: 1px solid black;
+  padding: .5rem;
+}
+
+.vacancies-list > a:hover {
+  cursor: pointer;
+  border-color: green;
+}
