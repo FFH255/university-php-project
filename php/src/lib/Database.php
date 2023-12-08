@@ -63,4 +63,18 @@
     $stmt->close();
     return $result;
   }
+
+  public function replayVacancy($vacancyId) {
+    $query = "INSERT INTO replies (vacancy_id, created_at) VALUES (?, CURRENT_TIMESTAMP)";
+    $stmt = $this->db->prepare($query);
+
+    if (!$stmt) {
+      return false;
+    }
+
+    $stmt->bind_param("i", $vacancyId);
+    $result = $stmt->execute();
+    $stmt->close();
+    return $result;
+  }
 } ?>

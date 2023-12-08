@@ -61,6 +61,9 @@
     }
     function editVacancy($id, $title, $company, $employment, $experience_from, $experience_to, $city, $salary_from, $salary_to, $description) {
       return $this->database->updateVacancy($id, $title, $company, $employment, $experience_from, $experience_to, $city, $salary_from, $salary_to, $description);
-  }
+    }
+    function replayVacancy($vacancyId) {
+      return $this->database->replayVacancy($vacancyId);
+    }
   } 
 ?>

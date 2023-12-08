@@ -24,5 +24,6 @@
 </form>
 
 <?php 
+  include $ROOT . '/ui/replayVacancyButton.php';
   echo "</a>";
 ?>
