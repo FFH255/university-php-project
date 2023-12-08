@@ -2,12 +2,12 @@
   display: grid;
 }
 
-.create-vacancy-page {
+.vacancy-form-wrapper {
   display: grid;
   gap: 1.2rem;
 }
 
-.create-vacancy-page > h1 {
+.vacancy-form-wrapper > h1 {
   text-align: center;
 }
 

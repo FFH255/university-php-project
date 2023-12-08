@@ -9,7 +9,18 @@
   public $salary_from;
   public $salary_to;
   public $description;
-  public function __construct($id, $title, $company, $employment, $experience_from, $experience_to, $city, $salary_from, $salary_to, $description) {
+  public function __construct(
+    int $id = null, 
+    string $title = null, 
+    string $company = null, 
+    string $employment = null, 
+    int $experience_from = null, 
+    int $experience_to = null, 
+    string $city = null, 
+    int $salary_from = null, 
+    int $salary_to = null, 
+    string $description = null
+  ) {
     $this->id = $id;
     $this->title = $title;
     $this->company = $company;
