@@ -1,6 +1,7 @@
 <?php 
   $headerLinks = [
     ['link' => '/', 'title' => 'Главная'],
+    ['link' => '/create-vacancy.php', 'title' => 'Добавить вакансию'],
     ['link' => '/replies.php', 'title' => 'Отклики'],
   ];
 ?>

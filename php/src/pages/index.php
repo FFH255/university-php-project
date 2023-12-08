@@ -10,4 +10,3 @@
     }
   ?>
 </div>
-<a href="/create-vacancy.php">Создать вакансию</a>
