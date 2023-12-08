@@ -1,6 +1,4 @@
-<?php 
-  include __DIR__ . '/VacancyModel.php';
-  class VacanciesService {
+<?php class VacanciesService {
     private $database;
     public function __construct() {
       $this->database = Database::getInstance();
@@ -42,27 +40,16 @@
       );
       return $vacancy;
     }
-    public function createVacancy($title, $company, $employment, $experience_from, $experience_to, $city, $salary_from, $salary_to, $description) {
-      $newId = $this->database->createVacancy(
-        $title, 
-        $company,
-        $employment, 
-        $experience_from, 
-        $experience_to, 
-        $city, 
-        $salary_from,
-        $salary_to, 
-        $description
-      );
-      return $newId;
+    public function createVacancy(VacancyModel $model) {
+      return $this->database->createVacancy($model);
     }
-    public function deleteVacancy($id) {
+    public function deleteVacancy(int $id) {
       return $this->database->deleteVacancy($id);
     }
-    function editVacancy($id, $title, $company, $employment, $experience_from, $experience_to, $city, $salary_from, $salary_to, $description) {
-      return $this->database->updateVacancy($id, $title, $company, $employment, $experience_from, $experience_to, $city, $salary_from, $salary_to, $description);
+    function editVacancy(VacancyModel $model) {
+      return $this->database->updateVacancy($model);
     }
-    function replyVacancy($vacancyId) {
+    function replyVacancy(int $vacancyId) {
       return $this->database->replyVacancy($vacancyId);
     }
   } 

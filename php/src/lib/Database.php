@@ -19,22 +19,46 @@
     $this->db = new mysqli($hostname, $username, $password, $dbname);
   }
   public function getAllVacancies() {
-    return $this->db->query('CALL SelectAllVacancies();');
+    $query = 'SELECT * FROM vacancies;';
+    $result = $this->db->query($query);
+    return $result;
   }
 
   public function getVacancyById($id) {
-    $queryString = "SELECT * FROM vacancies WHERE id = $id;";
-    return $this->db->query($queryString);
+    $query = "SELECT * FROM vacancies WHERE id = $id;";
+    $result = $this->db->query($query);
+    return $result;
   }
-  public function createVacancy($title, $company, $employment, $experience_from, $experience_to, $city, $salary_from, $salary_to, $description) {
-    $query = "SELECT InsertVacancy(?, ?, ?, ?, ?, ?, ?, ?, ?) AS new_id";
+  public function createVacancy(VacancyModel $model) {
+    $query = "INSERT INTO vacancies (
+      title,
+      company,
+      employment,
+      experience_from,
+      experience_to,
+      city,
+      salary_from,
+      salary_to,
+      description
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+
     $stmt = $this->db->prepare($query);
-    $stmt->bind_param("sssssssss", $title, $company, $employment, $experience_from, $experience_to, $city, $salary_from, $salary_to, $description);
+    $stmt->bind_param(
+      "sssiisiis", 
+      $model->title, 
+      $model->company, 
+      $model->employment, 
+      $model->experience_from, 
+      $model->experience_to, 
+      $model->city, 
+      $model->salary_from, 
+      $model->salary_to, 
+      $model->description,
+    );
     $stmt->execute();
     $result = $stmt->get_result();
-    $row = $result->fetch_assoc();
-    $id = $row['new_id'];
-    return $id;
+    $stmt->close();
+    return $result;
   }
 
   public function deleteVacancy($id) {
@@ -46,18 +70,33 @@
     return $result;
   }
 
-  function updateVacancy($id, $title, $company, $employment, $experience_from, $experience_to, $city, $salary_from, $salary_to, $description) {
-    $query = "UPDATE vacancies
-      SET title=?, company=?, employment=?, experience_from=?, experience_to=?, city=?, salary_from=?, salary_to=?, description=?
-      WHERE id=?";
+  function updateVacancy(VacancyModel $model) {
+    $query = "UPDATE vacancies SET 
+      title=?, 
+      company=?, 
+      employment=?, 
+      experience_from=?, 
+      experience_to=?, 
+      city=?, 
+      salary_from=?, 
+      salary_to=?, 
+      description=? WHERE id=?
+    ";
 
     $stmt = $this->db->prepare($query);
-
-    if (!$stmt) {
-      die('Error in prepare(): ' . $this->db->error);
-    }
-
-    $stmt->bind_param("sssiisiisi", $title, $company, $employment, $experience_from, $experience_to, $city, $salary_from, $salary_to, $description, $id);
+    $stmt->bind_param(
+      "sssiisiisi", 
+      $model->title, 
+      $model->company, 
+      $model->employment, 
+      $model->experience_from, 
+      $model->experience_to, 
+      $model->city, 
+      $model->salary_from, 
+      $model->salary_to, 
+      $model->description, 
+      $model->id
+    );
 
     $result = $stmt->execute();
     $stmt->close();
@@ -67,11 +106,6 @@
   public function replyVacancy($vacancyId) {
     $query = "INSERT INTO replies (vacancy_id, created_at) VALUES (?, CURRENT_TIMESTAMP)";
     $stmt = $this->db->prepare($query);
-
-    if (!$stmt) {
-      return false;
-    }
-
     $stmt->bind_param("i", $vacancyId);
     $result = $stmt->execute();
     $stmt->close();

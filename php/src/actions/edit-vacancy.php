@@ -1,4 +1,6 @@
 <?php 
+  require_once $_SERVER["DOCUMENT_ROOT"] . '/bootstrap.php';
+
   $keys = [
     'id',
     'title', 
@@ -12,19 +14,20 @@
     'description'
   ];
 
+  $data = [];
+
   foreach ($keys as $key) {
-    $param = $_POST[$key];
-    $$key = ($param !== '' && isset($param)) ? $param : null;
+      $param = $_POST[$key] ?? null;
+      $data[$key] = ($param !== '' && isset($param)) ? $param : null;
   }
 
-  if (!$title || !$employment || !$description) {
+  if (!$data['title'] || !$data['employment'] || !$data['description']) {
     die();
   }
 
-  require_once $_SERVER["DOCUMENT_ROOT"] . '/bootstrap.php';
-  require_once  $ROOT . '/lib/VacanciesService.php';
+  $vacancyModel = new VacancyModel(...array_values($data));
 
   $vacanciesService = new VacanciesService();
-  $result = $vacanciesService->editVacancy($id, $title, $company, $employment, $experience_from, $experience_to, $city, $salary_from, $salary_to, $description);
+  $result = $vacanciesService->editVacancy($vacancyModel);
   redirect('/');
 ?>
