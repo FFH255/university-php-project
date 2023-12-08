@@ -56,5 +56,8 @@
       );
       return $newId;
     }
+    public function deleteVacancy($id) {
+      return $this->database->deleteVacancy($id);
+    }
   } 
 ?>

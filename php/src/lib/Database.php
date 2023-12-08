@@ -36,4 +36,13 @@
     $id = $row['new_id'];
     return $id;
   }
+
+  public function deleteVacancy($id) {
+    $query = "DELETE FROM vacancies WHERE id = ?";
+    $stmt = $this->db->prepare($query);
+    $stmt->bind_param("i", $id);
+    $result = $stmt->execute();
+    $stmt->close();
+    return $result;
+  }
 } ?>

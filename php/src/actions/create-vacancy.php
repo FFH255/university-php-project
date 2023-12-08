@@ -17,7 +17,6 @@
   }
 
   if (!$title || !$employment || !$description) {
-    echo "<h2>Заполните все необходимые поля</h2>";
     die();
   }
 
