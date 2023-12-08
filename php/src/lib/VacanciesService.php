@@ -17,7 +17,8 @@
           $row['city'],
           $row['salary_from'],
           $row['salary_to'],
-          $row['description']
+          $row['description'],
+          $row['replies']
         );
         $vacancies[] = $vacancy;
       }

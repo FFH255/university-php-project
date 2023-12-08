@@ -9,6 +9,7 @@
   public $salary_from;
   public $salary_to;
   public $description;
+  public $replies;
   public function __construct(
     int $id = null, 
     string $title = null, 
@@ -19,7 +20,8 @@
     string $city = null, 
     int $salary_from = null, 
     int $salary_to = null, 
-    string $description = null
+    string $description = null,
+    int $replies = null
   ) {
     $this->id = $id;
     $this->title = $title;
@@ -31,5 +33,6 @@
     $this->salary_from = $salary_from;
     $this->salary_to = $salary_to;
     $this->description = $description; 
+    $this->replies = $replies;
   }
 } ?>

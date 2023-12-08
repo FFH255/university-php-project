@@ -19,7 +19,7 @@
     $this->db = new mysqli($hostname, $username, $password, $dbname);
   }
   public function getAllVacancies() {
-    $query = 'SELECT * FROM vacancies;';
+    $query = 'SELECT *, (SELECT COUNT(*) FROM replies WHERE replies.vacancy_id = vacancies.id) AS replies FROM vacancies';
     $result = $this->db->query($query);
     return $result;
   }
