@@ -64,7 +64,7 @@
     return $result;
   }
 
-  public function replayVacancy($vacancyId) {
+  public function replyVacancy($vacancyId) {
     $query = "INSERT INTO replies (vacancy_id, created_at) VALUES (?, CURRENT_TIMESTAMP)";
     $stmt = $this->db->prepare($query);
 

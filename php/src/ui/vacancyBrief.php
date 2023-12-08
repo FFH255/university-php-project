@@ -15,6 +15,6 @@
   ";
   include $ROOT . '/ui/deleteVacancyButton.php';
   include $ROOT . '/ui/editVacancyButton.php';
-  include $ROOT . '/ui/replayVacancyButton.php';
+  include $ROOT . '/ui/replyVacancyButton.php';
   echo "</a>";
 ?>

@@ -8,7 +8,7 @@
   require_once  $ROOT . '/lib/VacanciesService.php';
 
   $vacanciesService = new VacanciesService();
-  $result = $vacanciesService->replayVacancy($vacancyId);
+  $result = $vacanciesService->replyVacancy($vacancyId);
 
   include_once $ROOT . '/lib/utils/redirect.php';
 
