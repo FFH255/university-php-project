@@ -18,5 +18,9 @@
       }
       return $replies;
     }
+    public function deleteReplyById($id) {
+      $result = $this->database->deleteReplyById($id);
+      return $result;
+    }
   } 
 ?>

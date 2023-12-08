@@ -113,4 +113,12 @@
     $result = $this->db->query($query);
     return $result;
   }
+  public function deleteReplyById($id) {
+    $query = 'DELETE FROM replies WHERE id = ?;';
+    $stmt = $this->db->prepare($query);
+    $stmt->bind_param('i', $id);
+    $result = $stmt->execute();
+    $stmt->close();
+    return $result;
+  }
 } ?>
