@@ -1,4 +1,4 @@
-<form class="vacancy-form" action="<?php echo $actionUrl ?>">
+<form class="vacancy-form" method="post" action="<?php echo $actionUrl ?>">
   <div>
     <label>Заголовок:</label>
     <input name="title" type="text" value="<?php $title; ?>" required />

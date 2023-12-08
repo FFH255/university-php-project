@@ -12,7 +12,7 @@
   ];
 
   foreach ($keys as $key) {
-    $param = $_GET[$key];
+    $param = $_POST[$key];
     $$key = ($param !== '' && isset($param)) ? $param : null;
   }
 
