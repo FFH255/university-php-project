@@ -38,9 +38,5 @@
 
   include_once $ROOT . '/lib/utils/redirect.php';
 
-  if ($id) {
-    redirect("/vacancy.php?id={$id}");
-  } else {
-    redirect("/");
-  }
+  redirect('/');
 ?>

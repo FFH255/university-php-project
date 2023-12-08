@@ -11,10 +11,9 @@
       <span>{$vacancy->employment}</span>
       <span>от {$vacancy->experience_from} до {$vacancy->experience_to}</span>
       <span>от {$vacancy->salary_from} до {$vacancy->salary_to}</span>
-      <form method='post' action='/actions/delete-vacancy.php'>
-        <input name='id' type='hidden' value='$vacancy->id' />
-        <input value='Удалить' type='submit'/>
-      </form> 
-    </a>
   ";
 ?>
+<?php
+  include $ROOT . '/ui/deleteVacancyButton.php';
+  echo "</a>";
+?>  
