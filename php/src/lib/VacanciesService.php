@@ -59,5 +59,8 @@
     public function deleteVacancy($id) {
       return $this->database->deleteVacancy($id);
     }
+    function editVacancy($id, $title, $company, $employment, $experience_from, $experience_to, $city, $salary_from, $salary_to, $description) {
+      return $this->database->updateVacancy($id, $title, $company, $employment, $experience_from, $experience_to, $city, $salary_from, $salary_to, $description);
+  }
   } 
 ?>

@@ -45,4 +45,22 @@
     $stmt->close();
     return $result;
   }
+
+  function updateVacancy($id, $title, $company, $employment, $experience_from, $experience_to, $city, $salary_from, $salary_to, $description) {
+    $query = "UPDATE vacancies
+      SET title=?, company=?, employment=?, experience_from=?, experience_to=?, city=?, salary_from=?, salary_to=?, description=?
+      WHERE id=?";
+
+    $stmt = $this->db->prepare($query);
+
+    if (!$stmt) {
+      die('Error in prepare(): ' . $this->db->error);
+    }
+
+    $stmt->bind_param("sssiisiisi", $title, $company, $employment, $experience_from, $experience_to, $city, $salary_from, $salary_to, $description, $id);
+
+    $result = $stmt->execute();
+    $stmt->close();
+    return $result;
+  }
 } ?>

@@ -136,3 +136,42 @@ DELIMITER ;
 
 
 
+DELIMITER //
+
+CREATE FUNCTION UpdateVacancy(
+    p_id INT,
+    p_title VARCHAR(255),
+    p_company VARCHAR(255),
+    p_employment VARCHAR(255),
+    p_experience_from INT,
+    p_experience_to INT,
+    p_city VARCHAR(255),
+    p_salary_from INT,
+    p_salary_to INT,
+    p_description TEXT
+)
+RETURNS BOOLEAN
+READS SQL DATA
+BEGIN
+    DECLARE rowsAffected INT;
+
+    UPDATE vacancies
+    SET
+        title = p_title,
+        company = p_company,
+        employment = p_employment,
+        experience_from = p_experience_from,
+        experience_to = p_experience_to,
+        city = p_city,
+        salary_from = p_salary_from,
+        salary_to = p_salary_to,
+        description = p_description
+    WHERE
+        id = p_id;
+
+    SET rowsAffected = ROW_COUNT();
+
+    RETURN rowsAffected > 0;
+END //
+
+DELIMITER ;

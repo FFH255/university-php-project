@@ -13,7 +13,16 @@
       <span>от {$vacancy->salary_from} до {$vacancy->salary_to}</span>
   ";
 ?>
+
 <?php
   include $ROOT . '/ui/deleteVacancyButton.php';
-  echo "</a>";
 ?>  
+
+<form method='get' action='/edit-vacancy.php'>
+  <input name='id' type="hidden" value="<?php echo $vacancy->id; ?>" />
+  <input type='submit' value='Редактировать' />
+</form>
+
+<?php 
+  echo "</a>";
+?>
