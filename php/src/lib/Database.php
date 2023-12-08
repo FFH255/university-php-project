@@ -23,7 +23,6 @@
     $result = $this->db->query($query);
     return $result;
   }
-
   public function getVacancyById($id) {
     $query = "SELECT * FROM vacancies WHERE id = $id;";
     $result = $this->db->query($query);
@@ -60,7 +59,6 @@
     $stmt->close();
     return $result;
   }
-
   public function deleteVacancy($id) {
     $query = "DELETE FROM vacancies WHERE id = ?";
     $stmt = $this->db->prepare($query);
@@ -69,7 +67,6 @@
     $stmt->close();
     return $result;
   }
-
   function updateVacancy(VacancyModel $model) {
     $query = "UPDATE vacancies SET 
       title=?, 
@@ -102,13 +99,18 @@
     $stmt->close();
     return $result;
   }
-
   public function replyVacancy($vacancyId) {
     $query = "INSERT INTO replies (vacancy_id, created_at) VALUES (?, CURRENT_TIMESTAMP)";
     $stmt = $this->db->prepare($query);
     $stmt->bind_param("i", $vacancyId);
     $result = $stmt->execute();
     $stmt->close();
+    return $result;
+  }
+  public function getAllReplies() {
+    $query = 'SELECT DISTINCT(vacancy_id), replies.id, vacancies.title, vacancies.company, replies.created_at 
+      FROM replies JOIN vacancies ON replies.vacancy_id = vacancies.id;';
+    $result = $this->db->query($query);
     return $result;
   }
 } ?>

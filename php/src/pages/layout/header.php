@@ -1,6 +1,7 @@
 <?php 
   $headerLinks = [
     ['link' => '/', 'title' => 'Главная'],
+    ['link' => '/replies.php', 'title' => 'Отклики'],
   ];
 ?>
 
