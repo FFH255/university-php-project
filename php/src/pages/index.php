@@ -1,5 +1,4 @@
 <?php 
-  require_once $_SERVER["DOCUMENT_ROOT"] . '/lib/VacanciesService.php';
   $vacanciesService = new VacanciesService();
   $vacancies = $vacanciesService->getAllVacancies();
 ?>

@@ -1,5 +1,4 @@
 <?php 
-  include_once $ROOT . '/lib/VacanciesService.php';
   $vacanciesService = new VacanciesService();
   $id = $_GET['id'] ?? null;
   if (!$id) {
