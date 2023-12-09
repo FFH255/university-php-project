@@ -1,4 +1,5 @@
 <?php 
+  $errorMessage = $_GET['errorMessage'] ?? null;
   $title = 'Добавить вакансию';
   $buttonContent = "Добавить";
   $actionUrl = "/actions/create-vacancy.php";

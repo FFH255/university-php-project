@@ -27,7 +27,19 @@
 
   $vacancyModel = new VacancyModel(...array_values($data));
 
-  $vacanciesService = new VacanciesService();
-  $result = $vacanciesService->editVacancy($vacancyModel);
-  redirect('/');
+  $vacancyGuard = VacancyGuard::getInstance();
+  $errorMessage = $vacancyGuard->check($vacancyModel);
+
+  if ($errorMessage !== '') {
+    echo "
+      <script>
+        alert('$errorMessage');
+        window.history.back();
+      </script>
+    ";
+  } else {
+    $vacanciesService = new VacanciesService();
+    $result = $vacanciesService->editVacancy($vacancyModel);
+    redirect('/');
+  }
 ?>

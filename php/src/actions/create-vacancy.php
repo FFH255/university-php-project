@@ -24,11 +24,23 @@
   if (!$data['title'] || !$data['employment'] || !$data['description']) {
     die();
   }
-
+  
   $vacancyModel = new VacancyModel(...array_values($data));
 
-  $vacanciesService = new VacanciesService();
-  $result = $vacanciesService->createVacancy($vacancyModel);
+  $vacancyGuard = VacancyGuard::getInstance();
+  $errorMessage = $vacancyGuard->check($vacancyModel);
 
-  redirect('/');
+  if ($errorMessage !== '') {
+    echo "
+      <script>
+        alert('$errorMessage');
+        window.history.back();
+      </script>
+    ";
+  } else {
+    $vacanciesService = new VacanciesService();
+    $result = $vacanciesService->createVacancy($vacancyModel);
+  
+    redirect('/');
+  }
 ?>
