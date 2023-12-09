@@ -14,3 +14,7 @@
   cursor: pointer;
   border-color: green;
 }
+
+.filter-title-form {
+  margin-bottom: 1rem;
+}

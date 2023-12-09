@@ -18,11 +18,13 @@
   public function connect($hostname, $username, $password, $dbname) {
     $this->db = new mysqli($hostname, $username, $password, $dbname);
   }
-  public function getAllVacancies() {
-    $query = 'SELECT *, (SELECT COUNT(*) FROM replies WHERE replies.vacancy_id = vacancies.id) AS replies FROM vacancies';
+  public function getAllVacancies(string $filterTitle = '') {
+    $query = "SELECT *, (SELECT COUNT(*) FROM replies WHERE replies.vacancy_id = vacancies.id) AS replies 
+      FROM vacancies WHERE vacancies.title LIKE '%$filterTitle%'";
     $result = $this->db->query($query);
     return $result;
-  }
+}
+
   public function getVacancyById($id) {
     $query = "SELECT * FROM vacancies WHERE id = $id;";
     $result = $this->db->query($query);

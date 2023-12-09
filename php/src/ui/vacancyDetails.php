@@ -9,6 +9,6 @@
       <span>от {$vacancy->salary_from} до {$vacancy->salary_to}</span>
       <span>{$vacancy->description}</span>
     ";
-    include_once $ROOT . '/ui/replayVacancyButton.php';
+    include_once $ROOT . '/ui/replyVacancyButton.php';
   ?>
 </div>

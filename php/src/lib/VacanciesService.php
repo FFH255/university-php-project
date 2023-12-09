@@ -3,8 +3,8 @@
     public function __construct() {
       $this->database = Database::getInstance();
     }
-    public function getAllVacancies() {
-      $result = $this->database->getAllVacancies();
+    public function getAllVacancies(string $filterTitle = '') {
+      $result = $this->database->getAllVacancies($filterTitle);
       $vacancies = [];
       while ($row = $result->fetch_assoc()) {
         $vacancy = new VacancyModel(
