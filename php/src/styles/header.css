@@ -1,12 +1,37 @@
 header {
   display: flex;
   align-items: center;
-  padding: 1rem;
-  gap: 2rem;
-  border-bottom: 1px solid black;
+  justify-content: space-between;
+  padding: 1rem 5rem;
+  gap: 5rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: var(--background-1000);
+  z-index: 1000;
 }
 
-header nav {
+header > h3 {
+  color: var(--contrast);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+header > nav {
   display: flex;
-  gap: 1rem;
+  gap: 1.3rem;
+}
+
+header > nav > a {
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+header > nav > a:hover {
+  color: var(--dominant);
+}
+
+header > nav > a.active {
+  color: var(--dominant); 
 }

@@ -4,6 +4,8 @@
     ['link' => '/create-vacancy.php', 'title' => 'Добавить вакансию'],
     ['link' => '/replies.php', 'title' => 'Отклики'],
   ];
+
+  $currentURL = $_SERVER['REQUEST_URI'];
 ?>
 
 <header>
@@ -12,9 +14,15 @@
     <?php
       if (isset($headerLinks) && is_array($headerLinks)) {
         foreach ($headerLinks as $item) {
-            echo "<a href=\"{$item['link']}\">{$item['title']}</a>";
+            $isActive = ($currentURL == $item['link']) ? 'active' : '';
+
+            echo "<a href=\"{$item['link']}\" class=\"$isActive\">{$item['title']}</a>";
         }
       }
     ?>
   </nav>
+  <form method="get" class="filter-title-form">
+    <input name="filter_title" type="text" value="<?php echo $filterTitle ?? ''; ?>" />
+    <input type="submit" value="Найти" />
+</form>
 </header>

@@ -4,17 +4,25 @@
 }
 
 .vacancies-list > a {
+  display: grid;
+  gap: .3rem;
   color: black;
   text-decoration: none;
-  border: 1px solid black;
-  padding: .5rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--background-500);
+}
+
+.vacancies-list > a > h3 {
+  color: var(--dominant); 
 }
 
 .vacancies-list > a:hover {
   cursor: pointer;
-  border-color: green;
+  border-color: var(--dominant);
 }
 
-.filter-title-form {
-  margin-bottom: 1rem;
+.vacancies-list > a > .buttons {
+  display: flex;
+  gap: .5rem;
 }
