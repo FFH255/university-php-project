@@ -21,8 +21,8 @@
       }
     ?>
   </nav>
-  <form method="get" class="filter-title-form">
-    <input name="filter_title" type="text" value="<?php echo $filterTitle ?? ''; ?>" />
+  <form method="get" class="filter-title-form" action="/">
+    <input name="filter_title" type="text" />
     <input type="submit" value="Найти" />
 </form>
 </header>

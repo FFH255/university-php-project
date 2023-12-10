@@ -18,13 +18,15 @@
     </div>
 
     <div>
-      <label>Отып работы от:</label>
-      <input name="experience_from" type="number" value="<?php echo $vacancy->experience_from; ?>" />
-    </div>
+      <div>
+        <label>Отып работы от:</label>
+        <input name="experience_from" type="number" value="<?php echo $vacancy->experience_from; ?>" />
+      </div>
 
-    <div>
-      <label>Опыт работы до:</label>
-      <input name="experience_to" type="number" value="<?php echo $vacancy->experience_to; ?>" />
+      <div>
+        <label>Опыт работы до:</label>
+        <input name="experience_to" type="number" value="<?php echo $vacancy->experience_to; ?>" />
+      </div>
     </div>
 
     <div>
@@ -33,13 +35,15 @@
     </div>
 
     <div>
-      <label>Зарплата от:</label>
-      <input name="salary_from" type="number" value="<?php echo $vacancy->salary_from; ?>" />
-    </div>
+      <div>
+        <label>Зарплата от:</label>
+        <input name="salary_from" type="number" value="<?php echo $vacancy->salary_from; ?>" />
+      </div>
 
-    <div>
-      <label>Зарплата до:</label>
-      <input name="salary_to" type="number" value="<?php echo $vacancy->salary_to; ?>" />
+      <div>
+        <label>Зарплата до:</label>
+        <input name="salary_to" type="number" value="<?php echo $vacancy->salary_to; ?>" />
+      </div>
     </div>
 
     <div>
