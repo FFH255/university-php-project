@@ -5,13 +5,14 @@
   $vacancies = $vacanciesService->getAllVacancies($filterTitle);
 ?>
 
-<div class='vacancies-list'>
-  <?php 
-    if (count($vacancies) === 0) {
-      echo "<h2>Список вакансий пуст</h2>";
-    }
+<?php 
+  if (count($vacancies) === 0) {
+    echo "<h2 class='placeholder'>Список вакансий пуст</h2>";
+  } else {
     foreach ($vacancies as $vacancy) {
+      echo "<div class='vacancies-list'>";
       include $ROOT . '/ui/vacancyBrief.php';
+      echo "</div>";
     }
-  ?>
-</div>
+  }
+?>

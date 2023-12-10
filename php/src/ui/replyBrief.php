@@ -4,11 +4,13 @@
 
 <?php 
   echo "
-    <div>
-      <h3>$reply->vacancy_title</h3>
+    <div class='vacancy vacancy_bordered'>
+      <h3 class='vacancy__title'>$reply->vacancy_title</h3>
       <span>$reply->vacancy_company</span>
       <span>$reply->created_at</span>
-      <a href='$deleteReplyUrl'>Удалить</a>
+      <div class='vacancy__buttons'>
+        <a class='button button_theme_danger' href='$deleteReplyUrl'>Удалить</a>
+      </div>
     </div>
   ";
 ?>

@@ -6,6 +6,7 @@
 
 .button:hover {
   opacity: .7;
+  cursor: pointer;
 }
 
 .button:disabled {
@@ -22,4 +23,9 @@
   border: 1px solid var(--positive);
   background-color: var(--positive);
   color: var(--background-1000);
+}
+
+.button_theme_danger {
+  border: 1px solid var(--danger);
+  color: var(--danger);
 }
