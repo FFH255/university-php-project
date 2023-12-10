@@ -8,21 +8,21 @@
   $currentURL = $_SERVER['REQUEST_URI'];
 ?>
 
-<header>
-  <h3>Job Finder</h3>
-  <nav>
+<header class="header">
+  <h3 class="header__sitename">Job Finder</h3>
+  <nav class="header__navigation">
     <?php
       if (isset($headerLinks) && is_array($headerLinks)) {
         foreach ($headerLinks as $item) {
-            $isActive = ($currentURL == $item['link']) ? 'active' : '';
+            $isActive = ($currentURL == $item['link']) ? 'header__link_active' : '';
 
-            echo "<a href=\"{$item['link']}\" class=\"$isActive\">{$item['title']}</a>";
+            echo "<a href=\"{$item['link']}\" class=\"header__link $isActive\">{$item['title']}</a>";
         }
       }
     ?>
   </nav>
-  <form method="get" class="filter-title-form" action="/">
-    <input name="filter_title" type="text" />
-    <input type="submit" value="Найти" />
+  <form method="get" class="search-title" action="/">
+    <input name="filter_title" type="text" class="search-title__input" />
+    <input type="submit" value="Найти" class="search-title__button" />
 </form>
 </header>

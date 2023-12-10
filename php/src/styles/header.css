@@ -1,4 +1,4 @@
-header {
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,26 +12,40 @@ header {
   z-index: 1000;
 }
 
-header > h3 {
-  color: var(--contrast);
+.header__sitename {
+  color: var(--main);
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-header > nav {
+.header__navigation {
   display: flex;
   gap: 1.3rem;
 }
 
-header > nav > a {
+.header__link {
   font-size: 1.1rem;
   font-weight: 400;
 }
 
-header > nav > a:hover {
-  color: var(--dominant);
+.header__link:hover {
+  color: var(--contrast); 
 }
 
-header > nav > a.active {
-  color: var(--dominant); 
+.header__link_active {
+  color: var(--contrast); 
+}
+
+.search-title {
+  border: 1px solid var(--main);
+  padding: .2rem .6rem;
+  border-radius: 6px;
+}
+
+.search-title__input {
+  cursor: text;
+}
+
+.search-title__button {
+
 }

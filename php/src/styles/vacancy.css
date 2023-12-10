@@ -1,59 +1,25 @@
 .vacancy {
   display: grid;
-}
-
-.vacancy-form-wrapper {
-  display: grid;
-  gap: 1.2rem;
-}
-
-.vacancy-form-wrapper > h1 {
-  text-align: center;
-}
-
-.vacancy-form {
-  width: 40vw;
-  margin: auto;
-  display: grid;  
-  gap: 1rem;
-  justify-content: stretch;
-}
-
-.vacancy-form > div {
-  display: grid;
   gap: .3rem;
+  padding: 1.5rem;
 }
 
-.vacancy-form > div > input {
-  padding: .4rem;
-}
-
-.vacancy-form > div > label {
-  font-size: .9rem;
-}
-
-.vacancy-form > input[type="submit"] {
-  width: min-content;
-  padding: .4rem .8rem;
-}
-
-.vacancy-form > input[type="submit"]:hover {
+.vacancy_hoverable:hover {
   cursor: pointer;
+  border-color: var(--main);
 }
 
-.reply-vacancy-form > input[type="submit"] {
-  background-color: var(--good);
-  color: var(--background-1000);
-}
-
-.reply-vacancy-form > input[type="submit"]:disabled {
-  opacity: .5;
-}
-
-.delete-vacancy-form > input[type="submit"] {
+.vacancy_bordered {
   border: 1px solid var(--background-500);
+  border-radius: 8px;
 }
 
-.edit-vacancy-form > input[type="submit"] {
-  border: 1px solid var(--background-500);
+.vacancy__title {
+  color: var(--contrast);
+}
+
+.vacancy__buttons {
+  display: flex;
+  gap: .4rem;
+  margin-block: .3rem;
 }

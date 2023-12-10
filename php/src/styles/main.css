@@ -2,6 +2,7 @@
 @import url('./header.css');
 @import url('./index.css');
 @import url('./vacancy.css');
+@import url('./buttons.css');
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -9,29 +10,27 @@
 }
 
 :root {
-  --contrast: #010103;
+  --main: #010103;
   --background-1000: #ffffff;
   --background-500: #ececee;
   --background-250: #f4f4f5;
-  --dominant: #006ff0;
-  --good: #4bb24e;
+  --contrast: #006ff0;
+  --positive: #4bb24e;
 }
 
 html {
   line-height: 1.5;
   background-color: var(--background-1000);
-}
-
-body {
   font-family:  Arial, sans-serif;
+  color: var(--main);
 }
 
 a {
   text-decoration: none;
-  color: var(--contrast);
+  color: inherit;
 }
 
-button, input[type="submit"] {
+button, input {
 	background: none;
 	color: inherit;
 	border: none;
@@ -39,24 +38,4 @@ button, input[type="submit"] {
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
-  font-size: .8rem;
-  padding: .3rem .6rem;
-  border-radius: 6px;
-}
-
-input[type="text"], input[type="number"], textarea {
-  background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	outline: inherit;
-  font-size: .8rem;
-  padding: .2rem .4rem;
-  border-radius: 6px;
-  border: 1px solid var(--contrast);
-}
-
-button:hover, input[type="submit"]:hover, input[type="reset"]:hover {
-  cursor: pointer;
 }
