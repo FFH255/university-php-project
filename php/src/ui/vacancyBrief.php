@@ -5,8 +5,8 @@
 
 <?php 
   echo "
-    <a class='vacancy vacancy_hoverable vacancy_bordered' href=$vacancyDetailsUrl >
-      <h3 class='vacancy__title'>{$vacancy->title}</h3>
+    <a class='item item_hoverable _border_sub' href=$vacancyDetailsUrl >
+      <h3 class='item__title'>{$vacancy->title}</h3>
       <span>{$vacancy->company}</span>
       <span>{$vacancy->city}</span>
       <span>{$vacancy->employment}</span>
@@ -15,7 +15,7 @@
   ";
 ?>
 
-<div class="vacancy__buttons">
+<div class="item__buttons">
   <?php 
     include $ROOT . '/ui/replyVacancyButton.php';
     include $ROOT . '/ui/editVacancyButton.php';

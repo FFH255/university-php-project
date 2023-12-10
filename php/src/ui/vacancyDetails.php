@@ -1,16 +1,18 @@
-<div class='vacancy'>
+<div class='item'>
   <?php 
     echo "
-      <h2 class='vacancy__title'>{$vacancy->title}</h2>
+      <h2 class='item__title'>{$vacancy->title}</h2>
       <span>{$vacancy->company}</span>
       <span>{$vacancy->city}</span>
       <span>{$vacancy->employment}</span>
       <span>от {$vacancy->experience_from} до {$vacancy->experience_to}</span>
       <span>от {$vacancy->salary_from} до {$vacancy->salary_to}</span>
       <span>{$vacancy->description}</span>
-      <div class='vacancy__buttons'>
+      <div class='item__buttons'>
     ";
-    include_once $ROOT . '/ui/replyVacancyButton.php';
+    include $ROOT . '/ui/replyVacancyButton.php';
+    include $ROOT . '/ui/editVacancyButton.php';
+    include $ROOT . '/ui/deleteVacancyButton.php';
   ?>
   </div>
 </div>

@@ -9,10 +9,10 @@
   if (count($vacancies) === 0) {
     echo "<h2 class='placeholder'>Список вакансий пуст</h2>";
   } else {
+    echo "<div class='list'>";
     foreach ($vacancies as $vacancy) {
-      echo "<div class='vacancies-list'>";
       include $ROOT . '/ui/vacancyBrief.php';
-      echo "</div>";
     }
+    echo "</div>";
   }
 ?>
