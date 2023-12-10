@@ -24,9 +24,6 @@
     if ($model->experience_from < 0 || $model->experience_to < 0) {
       return 'Опыт работы не может быть меньше нуля';
     }
-    if (!is_int($model->experience_from) || !is_int($model->experience_to)) {
-      return 'Опыт работы должен быть целым числом';
-    }
     if ($model->experience_from > $model->experience_to) {
       return 'Неправильно задан диапазон опыта';
     }
@@ -35,9 +32,6 @@
     }
     if ($model->salary_from < 0 || $model->salary_to < 0) {
       return 'Оклад не может быть меньше нуля';
-    }
-    if (!is_int($model->salary_from) || !is_int($model->salary_to)) {
-      return 'Оклад должен быть целым числом';
     }
     if ($model->salary_from > $model->salary_to) {
       return 'Неправильно задан диапазон окдала';
